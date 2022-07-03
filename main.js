@@ -1,5 +1,5 @@
 const userDataInput = document.querySelector('#user');
-let userDataInputs = document.querySelectorAll('input[type="text"]');
+const userDataInputs = document.querySelectorAll('input[type="text"]');
 let dataset;
 
 function validate() {
@@ -10,10 +10,7 @@ function validate() {
     console.log(dataset);
 }
 
-
-userDataInput.addEventListener("change", validate);
-
-userDataInput.addEventListener("change", function () {
+function showResult() {
     for (let i = 0; i < 3; i++) {
         let user = dataset[i];
         let firstLetter = user[0];
@@ -21,4 +18,9 @@ userDataInput.addEventListener("change", function () {
         userDataInputs[i+1].style.color = 'blue';
         userDataInputs[i+1].value = user;
     }
-});
+
+
+userDataInput.addEventListener("change", function () {
+ 	validate();
+	showResult();
+ });
